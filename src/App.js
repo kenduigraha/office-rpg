@@ -12,11 +12,19 @@ class App extends Component {
   }
 
   componentWillMount() {
-    database.ref('characters').orderByKey().on('value', (snapshot) => {
-      this.setState({
-        characters: snapshot.val()
-      });
-    });
+    database.ref('characters')
+            // .orderByKey()
+            // .orderByChild('dexterity')
+            
+            // number of x first data :
+            // .limitToFirst(5)
+            // number of x last data :
+            // .limitToLast(5)
+            .on('value', (snapshot) => {
+              this.setState({
+                characters: snapshot.val()
+              });
+            });
   }
 
 
